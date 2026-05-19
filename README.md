@@ -5,7 +5,7 @@ Web sobre rutas por bizkaia
 Juan Carlos Gil
 
 ## Datos de contacto
-https://github.com/JuanCarlos0977/imosasun
+https://github.com/JuanCarlos0977/bizkaibide
 
 
 ## Descripción del proyecto
