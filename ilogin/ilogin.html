@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursiones de Día | Login</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="ilogin.css">
+    <meta name="description" content="Inicia sesión en tu cuenta de Excursiones de Día para gestionar tus rutas y preferencias de senderismo.">
+    <link rel="icon" href="../img/logo.jpeg" type="img/png">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="logo_salud"><a href="../index.html"><img src="../img/logo.jpeg" alt="ProyPersonal" /></a></div>
+            <div id="fechaDia"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../conocenos/conocenos.html">Conocenos</a></li>
+                <li><a href="../rutas/rutas.html">Rutas</a></li>
+                <li><a href="../icontacto/icontacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="../ilogin/ilogin.html" class="btn-login" id="btnLogin">Login</a>
+            <a href="../registro/registro.html" class="btn-registro" id="btnRegistro">Registro</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="inicio">
+            <div class="inicio-inicio">
+                <h1>INICIAR SESIÓN</h1>
+                <p class="inicio-bienvenida">Accede a tu cuenta para empezar a planificar tus rutas y guardar tus excursiones favoritas.</p>
+                
+                <div>
+                    <form class="form-container" id="formLogin" action="informacion.html" method="GET">
+                        <h2 class="form-title">Login</h2>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" id="password" name="password" required placeholder="Tu contraseña" />
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="acepto" name="acepto" required>
+                            <label for="acepto">Acepto las condiciones generales y políticas de la web.</label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Iniciar Sesión</button>
+                        
+                        <div class="form-footer-text">
+                            ¿No tienes una cuenta? <a href="../registro/registro.html">Regístrate aquí</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="inicio_img" style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; width: 100%;">
+                    <img src="../img/imagen5.jpeg" alt="Montaña nevada" style="max-width: 300px; width: 100%; border-radius: var(--border-radius); box-shadow: var(--card-shadow); transition: var(--transition);">
+                    <img src="../img/imagen7.jpeg" alt="Paseo por el bosque" style="max-width: 300px; width: 100%; border-radius: var(--border-radius); box-shadow: var(--card-shadow); transition: var(--transition);">
+                    <img src="../img/imagen8.jpeg" alt="Vistas al acantilado" style="max-width: 300px; width: 100%; border-radius: var(--border-radius); box-shadow: var(--card-shadow); transition: var(--transition);">
+                </div>
+            </div>
+        </section>     
+    </main>
+
+    <footer class="inicio-footer">
+        <div class="caja-footer">
+            <p class="p-footer">&copy; 2026 Proyecto Personal. Todos los derechos reservados.</p>
+            <a href="../icontacto/icontacto.html">Contacto</a>
+        </div>
+    </footer>
+    
+    <script src="../js/fechadia.js"></script>
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* registro.css - Estilos específicos de la página de Registro */
+/* Los estilos generales se cargan de ../style.css */
+
+.inicio_img img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+@media (max-width: 768px) {
+    .inicio_img {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .inicio_img img {
+        max-width: 100% !important;
+    }
+}

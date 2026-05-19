@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursiones de Día | Nuestras Rutas</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="rutas.css">
+    <meta name="description" content="Explora las mejores rutas de senderismo y excursiones de un día desde Bilbao y Bizkaia. Pagasarri, Flysch de Barrika, Bosque de Oma, Amboto y Salto del Nervión.">
+    <link rel="icon" href="../img/logo.jpeg" type="img/png">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="logo_salud"><a href="../index.html"><img src="../img/logo.jpeg" alt="ProyPersonal" /></a></div>
+            <div id="fechaDia"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../conocenos/conocenos.html">Conocenos</a></li>
+                <li><a href="../rutas/rutas.html" class="active">Rutas</a></li>
+                <li><a href="../icontacto/icontacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="../ilogin/ilogin.html" class="btn-login" id="btnLogin">Login</a>
+            <a href="../registro/registro.html" class="btn-registro" id="btnRegistro">Registro</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="rutas-section" class="rutas-section">
+            <div class="rutas-header">
+                <h1>RUTAS DE SENDERISMO</h1>
+                <p class="inicio-bienvenida">Descubre los senderos más emblemáticos de Bilbao y sus alrededores. Rutas seleccionadas detalladamente para todos los niveles.</p>
+            </div>
+            
+            <!-- Panel de Filtros Interactivo -->
+            <div class="filters-panel">
+                <div class="filter-group search-group">
+                    <input type="text" id="search-routes" placeholder="Buscar por nombre o palabras clave...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                
+                <div class="filter-group chips-group">
+                    <button class="filter-chip active" data-dificultad="todos">Todos</button>
+                    <button class="filter-chip" data-dificultad="facil">Fácil</button>
+                    <button class="filter-chip" data-dificultad="facil-moderada">Fácil / Med.</button>
+                    <button class="filter-chip" data-dificultad="moderada">Moderada</button>
+                    <button class="filter-chip" data-dificultad="alta">Alta</button>
+                </div>
+                
+                <div class="filter-group sort-group">
+                    <label for="sort-routes">Ordenar por:</label>
+                    <div class="select-container">
+                        <select id="sort-routes">
+                            <option value="relevancia">Relevancia</option>
+                            <option value="distancia">Distancia (Menor a Mayor)</option>
+                            <option value="tiempo">Tiempo (Menor a Mayor)</option>
+                            <option value="desnivel">Desnivel (Menor a Mayor)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-bar">
+                <span id="results-count">Mostrando las 6 rutas</span>
+            </div>
+            
+            <div class="rutas-grid">
+                <!-- Ruta 1: Pagasarri -->
+                <div class="ruta-card" data-dificultad="moderada" data-distancia="12" data-tiempo="4.0" data-desnivel="800">
+                    <div class="ruta-img-container">
+                        <img src="../img/imagen5.jpeg" alt="Monte Pagasarri y Ganekogorta">
+                        <span class="dificultad-badge moderada">Moderada</span>
+                    </div>
+                    <div class="ruta-content">
+                        <h3>Monte Pagasarri y Ganekogorta</h3>
+                        <p class="ruta-descripcion">La ascensión clásica por excelencia para cualquier bilbaíno. Desde la cima del Ganekogorta disfrutarás de unas vistas aéreas incomparables de todo Bilbao, el Gran Bilbao y la costa.</p>
+                        
+                        <div class="ruta-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">Distancia</span>
+                                <span class="metric-value">12 km</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tiempo</span>
+                                <span class="metric-value">4.0 h</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Desnivel</span>
+                                <span class="metric-value">+800 m</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-explorar" onclick="alert('Próximamente: Guía detallada y mapa interactivo GPX de la ascensión al Ganekogorta.')">Explorar Ruta</button>
+                    </div>
+                </div>
+
+                <!-- Ruta 2: Flysch de Barrika -->
+                <div class="ruta-card" data-dificultad="facil" data-distancia="8" data-tiempo="2.5" data-desnivel="150">
+                    <div class="ruta-img-container">
+                        <img src="../img/imagen7.jpeg" alt="Flysch de Barrika a Plentzia">
+                        <span class="dificultad-badge facil">Fácil</span>
+                    </div>
+                    <div class="ruta-content">
+                        <h3>Flysch de Barrika a Plentzia</h3>
+                        <p class="ruta-descripcion">Espectacular sendero costero al borde de acantilados donde contemplarás el impresionante Flysch del Cantábrico. Termina en la hermosa bahía y puerto de Plentzia.</p>
+                        
+                        <div class="ruta-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">Distancia</span>
+                                <span class="metric-value">8 km</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tiempo</span>
+                                <span class="metric-value">2.5 h</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Desnivel</span>
+                                <span class="metric-value">+150 m</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-explorar" onclick="alert('Próximamente: Guía detallada y mapa interactivo GPX de la ruta costera del Flysch.')">Explorar Ruta</button>
+                    </div>
+                </div>
+
+                <!-- Ruta 3: Bosque Oma -->
+                <div class="ruta-card" data-dificultad="facil-moderada" data-distancia="7.5" data-tiempo="2.5" data-desnivel="200">
+                    <div class="ruta-img-container">
+                        <img src="../img/imagen8.jpeg" alt="Bosque Pintado de Oma">
+                        <span class="dificultad-badge facil-moderada">Fácil / Med.</span>
+                    </div>
+                    <div class="ruta-content">
+                        <h3>Bosque de Oma y Santimamiñe</h3>
+                        <p class="ruta-descripcion">Una mágica fusión de arte y naturaleza en la Reserva de la Biosfera de Urdaibai. Admira la obra del artista Agustín Ibarrola plasmada en los pinos y visita el entorno de las cuevas prehistóricas.</p>
+                        
+                        <div class="ruta-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">Distancia</span>
+                                <span class="metric-value">7.5 km</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tiempo</span>
+                                <span class="metric-value">2.5 h</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Desnivel</span>
+                                <span class="metric-value">+200 m</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-explorar" onclick="alert('Próximamente: Guía detallada y mapa interactivo GPX del Bosque de Oma.')">Explorar Ruta</button>
+                    </div>
+                </div>
+
+                <!-- Ruta 4: Urkiola y Amboto -->
+                <div class="ruta-card" data-dificultad="alta" data-distancia="10" data-tiempo="4.5" data-desnivel="850">
+                    <div class="ruta-img-container">
+                        <img src="../img/imagen4.jpeg" alt="Parque Natural de Urkiola y Ascensión al Amboto">
+                        <span class="dificultad-badge alta">Alta</span>
+                    </div>
+                    <div class="ruta-content">
+                        <h3>Urkiola y Cresta del Amboto</h3>
+                        <p class="ruta-descripcion">Aventura pura de montaña cruzando el Parque Natural de Urkiola hasta el mítico Amboto, morada de la diosa Mari. Una cresta aérea exigente no apta para personas con vértigo.</p>
+                        
+                        <div class="ruta-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">Distancia</span>
+                                <span class="metric-value">10 km</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tiempo</span>
+                                <span class="metric-value">4.5 h</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Desnivel</span>
+                                <span class="metric-value">+850 m</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-explorar" onclick="alert('Próximamente: Guía detallada y mapa interactivo GPX del ascenso clásico al Amboto.')">Explorar Ruta</button>
+                    </div>
+                </div>
+
+                <!-- Ruta 5: San Juan de Gaztelugatxe -->
+                <div class="ruta-card" data-dificultad="facil" data-distancia="3.5" data-tiempo="1.5" data-desnivel="250">
+                    <div class="ruta-img-container">
+                        <img src="../img/imagen3.jpeg" alt="San Juan de Gaztelugatxe">
+                        <span class="dificultad-badge facil">Fácil</span>
+                    </div>
+                    <div class="ruta-content">
+                        <h3>San Juan de Gaztelugatxe</h3>
+                        <p class="ruta-descripcion">La emblemática ermita medieval asentada sobre un peñón rodeado por el mar Cantábrico. El camino empedrado de 241 escalones brinda vistas espectaculares y una brisa marina única.</p>
+                        
+                        <div class="ruta-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">Distancia</span>
+                                <span class="metric-value">3.5 km</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tiempo</span>
+                                <span class="metric-value">1.5 h</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Desnivel</span>
+                                <span class="metric-value">+250 m</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-explorar" onclick="alert('Próximamente: Guía detallada y mapa interactivo GPX para la visita a Gaztelugatxe.')">Explorar Ruta</button>
+                    </div>
+                </div>
+
+                <!-- Ruta 6: Cañón de Delika -->
+                <div class="ruta-card" data-dificultad="facil-moderada" data-distancia="9" data-tiempo="3.0" data-desnivel="200">
+                    <div class="ruta-img-container">
+                        <img src="../img/imagen2.jpeg" alt="Cañón de Delika y Salto del Nervión">
+                        <span class="dificultad-badge facil-moderada">Fácil / Med.</span>
+                    </div>
+                    <div class="ruta-content">
+                        <h3>Cañón de Delika y Salto del Nervión</h3>
+                        <p class="ruta-descripcion">Precioso recorrido que remonta el río Delika entre hayedos y desfiladeros de roca caliza hasta situarse frente al Salto del Nervión, la cascada más alta de la península ibérica.</p>
+                        
+                        <div class="ruta-metrics">
+                            <div class="metric-item">
+                                <span class="metric-label">Distancia</span>
+                                <span class="metric-value">9 km</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tiempo</span>
+                                <span class="metric-value">3.0 h</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Desnivel</span>
+                                <span class="metric-value">+200 m</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-explorar" onclick="alert('Próximamente: Guía detallada y mapa interactivo GPX del Cañón de Delika y Salto del Nervión.')">Explorar Ruta</button>
+                    </div>
+                </div>
+            </div>
+        </section>     
+    </main>
+
+    <footer class="inicio-footer">
+        <div class="caja-footer">
+            <p class="p-footer">&copy; 2026 Proyecto Personal. Todos los derechos reservados.</p>
+            <a href="../icontacto/icontacto.html">Contacto</a>
+        </div>
+    </footer>
+    
+    <script src="../js/fechadia.js"></script>
+    <script src="../js/rutas.js"></script>
+
+</body>
+</html>

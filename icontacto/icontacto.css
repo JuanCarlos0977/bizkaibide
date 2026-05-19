@@ -1,0 +1,18 @@
+/* icontacto.css - Estilos específicos de la página de Contacto */
+/* Los estilos generales de cabecera, pie y formulario se cargan de ../style.css */
+
+.inicio_img img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+@media (max-width: 768px) {
+    .inicio_img {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .inicio_img img {
+        max-width: 100% !important;
+    }
+}

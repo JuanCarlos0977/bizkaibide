@@ -1,0 +1,17 @@
+/* conocenos.css - Estilos específicos de la página Conócenos */
+/* La mayoría de estilos estructurales se cargan desde ../style.css */
+
+.inicio-conocenos {
+    transition: var(--transition);
+}
+
+.inicio-conocenos:hover {
+    transform: translateY(-2px);
+    border-color: rgba(212, 168, 71, 0.45) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
+}
+
+.inicio-conocenos ul li:hover {
+    transform: translateX(4px);
+    transition: var(--transition);
+}
