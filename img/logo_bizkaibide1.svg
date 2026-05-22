@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="550" height="160" viewBox="0 0 550 160">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=Montserrat:wght@900&amp;family=Playfair+Display:wght@700&amp;family=Space+Grotesk:wght@700&amp;display=swap');
+            .logo-text {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 32px;
+                font-weight: 900;
+                fill: #0f172a;
+                letter-spacing: 0.05em;
+            }
+            .logo-subtext {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 11px;
+                font-weight: bold;
+                fill: #10b981;
+                letter-spacing: 0.3em;
+            }
+        </style>
+    </defs>
+    <!-- Símbolo -->
+    <g transform="translate(30, 20) scale(1)">
+        
+                    <g transform="translate(10, 10)">
+                        <!-- Sol naciente / Brújula de fondo -->
+                        <circle cx="50" cy="50" r="32" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.4"/>
+                        
+                        <!-- El monte principal (Triangular pero redondeado) -->
+                        <path d="M 50 15 L 85 70 L 15 70 Z" fill="none" stroke="#10b981" stroke-width="4" stroke-linejoin="round"/>
+                        
+                        <!-- Un segundo pico menor detrás -->
+                        <path d="M 70 40 L 92 70 L 48 70" fill="none" stroke="#059669" stroke-width="3" stroke-linejoin="round" opacity="0.7"/>
+                        
+                        <!-- La senda (Camino sinuoso que cruza el monte) -->
+                        <path d="M 15 85 C 40 85, 35 60, 50 50 C 65 40, 60 25, 50 15" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 100" class="path-animate" style="stroke-dasharray: none;"/>
+                        <path d="M 12 85 C 38 83, 30 58, 48 55 C 62 52, 58 35, 52 28" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round"/>
+                        
+                        <!-- Detalle sol de fondo -->
+                        <circle cx="50" cy="35" r="5" fill="#059669" opacity="0.8"/>
+                    </g>
+                
+    </g>
+    <!-- Textos -->
+    <g transform="translate(180, 90)">
+        <text x="0" y="0" class="logo-text">BIZKAIBIDE</text>
+        <text x="0" y="26" class="logo-subtext">RUTAS • BIDEAK</text>
+    </g>
+</svg>
