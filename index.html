@@ -16,7 +16,7 @@
 
     <header>
             <div class="header-left">
-                <div class="logo_salud"><a href="index.html"><img src="img/logo_bizkaibide.svg" alt="Bizkaibide" /></a></div>
+                <div class="logo_bizkaibide"><a href="index.html"><img src="img/logo_bizkaibide.svg" alt="Bizkaibide" /></a></div>
                 <div id="fechaDia"></div>
             </div>
             <nav>
@@ -41,10 +41,15 @@
                     <p>En esta web vas a poder visualizar escursiones de dia partiendo de Bilbao y provincia</p>
                 </div>
                 <div class="inicio_img">
-                   
-                    <img id="laImagen" src="img/imagen1.jpeg" alt="Imagen1" width="300">
-                   <!-- <button id="btnCambiar">Cambiar Imagen</button> -->
-
+                    <div class="carousel" id="rutaCarrusel">
+                        <button class="carousel-control prev" id="prevRuta" aria-label="Ruta anterior">‹</button>
+                        <div class="carousel-slide">
+                            <img id="carouselImage" src="img/flysch.jpeg" alt="Flysch de Zumaia">
+                            <div class="carousel-caption" id="carouselCaption">Flysch de Zumaia</div>
+                        </div>
+                        <button class="carousel-control next" id="nextRuta" aria-label="Siguiente ruta">›</button>
+                    </div>
+                    <div class="carousel-dots" id="carruselDots"></div>
                 </div>
             </div>
     </section>     

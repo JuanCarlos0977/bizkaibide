@@ -1,33 +1,81 @@
-const imagen = document.getElementById('laImagen');
-const boton = document.getElementById('btnCambiar');
+const carouselImage = document.getElementById('carouselImage');
+const carouselCaption = document.getElementById('carouselCaption');
+const prevButton = document.getElementById('prevRuta');
+const nextButton = document.getElementById('nextRuta');
+const dotsContainer = document.getElementById('carruselDots');
 
-const img1 = '/img/imagen1.jpeg';
-const img2 = '/img/imagen2.jpeg';
-const img3 = '/img/imagen3.jpeg';
+const rutas = [
+  { src: 'img/flysch.jpeg', alt: 'Flysch de Zumaia', label: 'Flysch de Zumaia' },
+  { src: 'img/bosqueOma.jpeg', alt: 'Bosque de Oma', label: 'Bosque de Oma' },
+  { src: 'img/Gaztelugatxe.jpeg', alt: 'San Juan de Gaztelugatxe', label: 'San Juan de Gaztelugatxe' },
+  { src: 'img/anboto.jpeg', alt: 'Anboto', label: 'Monte Anboto' },
+  { src: 'img/gorbea.png', alt: 'Parque Natural Gorbea', label: 'Parque Natural Gorbea' }
+];
 
-let estadoImagen = 1;
+let currentIndex = 0;
+let slideInterval;
 
+const renderSlide = index => {
+  const ruta = rutas[index];
+  if (!ruta || !carouselImage || !carouselCaption) return;
 
-const cambiar = () => {
+  carouselImage.src = ruta.src;
+  carouselImage.alt = ruta.alt;
+  carouselCaption.textContent = ruta.label;
 
-  if (estadoImagen === 1) {
-    imagen.src = img2;
-    estadoImagen = 2;
-  }
-  else if (estadoImagen === 2) {
-    imagen.src = img3;
-    estadoImagen = 3;
-  }
-  else {
-    imagen.src = img1;
-    estadoImagen = 1;
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
+  dots.forEach((dot, dotIndex) => {
+    dot.classList.toggle('active', dotIndex === index);
+  });
+};
+
+const goToSlide = index => {
+  currentIndex = (index + rutas.length) % rutas.length;
+  renderSlide(currentIndex);
+};
+
+const goNext = () => goToSlide(currentIndex + 1);
+const goPrev = () => goToSlide(currentIndex - 1);
+
+const initDots = () => {
+  if (!dotsContainer) return;
+  dotsContainer.innerHTML = '';
+  rutas.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot';
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+};
+
+const startAutoSlide = () => {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(goNext, 6000);
+};
+
+const setupCarousel = () => {
+  if (!carouselImage || !carouselCaption) return;
+
+  initDots();
+  renderSlide(currentIndex);
+  startAutoSlide();
+
+  if (prevButton) prevButton.addEventListener('click', () => {
+    goPrev();
+    startAutoSlide();
+  });
+
+  if (nextButton) nextButton.addEventListener('click', () => {
+    goNext();
+    startAutoSlide();
+  });
+
+  const carouselElement = document.getElementById('rutaCarrusel');
+  if (carouselElement) {
+    carouselElement.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    carouselElement.addEventListener('mouseleave', startAutoSlide);
   }
 };
 
-const restaurar = () => imagen.src = img1;
-
-boton.addEventListener('click', cambiar);
-
-imagen.addEventListener('mouseenter', cambiar);
-
-imagen.addEventListener('mouseleave', restaurar);
+setupCarousel();

@@ -62,13 +62,13 @@ header {
     transition: var(--transition);
 }
 
-.logo_salud a {
+.logo_bizkaibide a {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
-.logo_salud img {
+.logo_bizkaibide img {
     height: 87px;
     width: auto;
     transition: var(--transition);
@@ -225,24 +225,108 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
     margin-top: 2rem;
 }
 
-.inicio_img img {
+.carousel {
+    position: relative;
     width: 100%;
-    max-width: 600px;
-    height: auto;
-    aspect-ratio: 4/3;
-    object-fit: cover;
+    max-width: 760px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     border-radius: 24px;
     box-shadow: var(--card-shadow);
-    transition: var(--transition);
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+    font-weight: 700;
+    color: var(--text-light);
+    background: rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text-light);
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.25s ease;
+    z-index: 2;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.carousel-control.prev {
+    left: 0.75rem;
+}
+
+.carousel-control.next {
+    right: 0.75rem;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.65rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.carousel-dot.active {
+    transform: scale(1.15);
+    background: var(--accent-color);
+    border-color: var(--text-light);
 }
 
 .inicio_img img:hover {
-    transform: scale(1.02);
+    transform: none;
 }
 
 #btnCambiar {
@@ -346,7 +430,7 @@ footer {
         padding: 0.9rem;
     }
 
-    .logo_salud img {
+    .logo_bizkaibide img {
         height: 42px;
     }
 
@@ -369,6 +453,16 @@ footer {
 
     .inicio-descripcion p {
         font-size: 1rem;
+    }
+
+    .carousel-control {
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+    }
+
+    .carousel-dots {
+        gap: 0.5rem;
     }
 
     footer {
