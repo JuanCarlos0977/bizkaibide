@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsCount = document.getElementById('results-count');
     const rutasGrid = document.getElementById('rutasGrid');
 
-    let excursions = [];
+    let excursiones = [];
     let activeDifficulty = 'todos';
     let searchQuery = '';
 
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(`${API_BASE_URL}/api/excursiones`);
             if (!response.ok) throw new Error('No se pudo cargar la lista de excursiones');
-            excursions = await response.json();
-            renderExcursiones(excursions);
+            excursiones = await response.json();
+            renderExcursiones(excursiones);
             filterAndSortCards();
         } catch (error) {
             resultsCount.textContent = 'Error al cargar las rutas. Revisa el backend.';
@@ -26,14 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderExcursiones(list) {
         rutasGrid.innerHTML = '';
-
         list.forEach((excursion) => {
             const card = document.createElement('div');
             card.className = 'ruta-card';
-            card.dataset.dificultad = (excursion.dificultad || 'otros').toLowerCase();
-            card.dataset.distancia = excursion.distancia ?? 0;
+            card.dataset.dificultad = excursion.dificultad || 'otros';
+            card.dataset.distancia = excursion.distancia || 0;
             card.dataset.tiempo = parseFloat((excursion.tiempo_estimado || '0').replace(',', '.')) || 0;
-            card.dataset.desnivel = excursion.desnivel ?? 0;
+            card.dataset.desnivel = excursion.desnivel || 0;
 
             const imageUrl = excursion.imagenes.length > 0 ? excursion.imagenes[0] : '../img/imagen1.jpeg';
             const dificultadLabel = excursion.dificultad ? excursion.dificultad.replace('-', ' / ') : 'Sin dificultad';
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="ruta-content">
                     <h3>${excursion.titulo}</h3>
-                    <p class="ruta-descripcion">${excursion.descripcion || ''}</p>
+                    <p class="ruta-descripcion">${excursion.descripcion}</p>
                     <div class="ruta-metrics">
                         <div class="metric-item">
                             <span class="metric-label">Distancia</span>
@@ -101,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const description = card.querySelector('.ruta-descripcion').textContent.toLowerCase();
             const category = card.querySelector('.dificultad-badge').textContent.toLowerCase();
             const difficulty = card.dataset.dificultad.toLowerCase();
-            const searchMatch = title.includes(searchQuery) || description.includes(searchQuery) || category.includes(searchQuery);
-            const difficultyMatch = activeDifficulty === 'todos' || difficulty === activeDifficulty;
+            const matchesSearch = title.includes(searchQuery) || description.includes(searchQuery) || category.includes(searchQuery);
+            const matchesDifficulty = activeDifficulty === 'todos' || difficulty === activeDifficulty;
 
-            if (searchMatch && difficultyMatch) {
+            if (matchesSearch && matchesDifficulty) {
                 card.style.display = '';
                 visibleCount += 1;
             } else {
