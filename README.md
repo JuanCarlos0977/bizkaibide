@@ -111,6 +111,30 @@ Este proyecto es una aplicación web estática, no requiere ningún tipo de inst
 3. Instala la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 4. Haz clic derecho sobre `index.html` → **"Open with Live Server"**.
 
+### 🧩 Backend local con SQLite y API REST
+
+Se ha añadido un backend en la carpeta `backend/` con una API REST para gestionar:
+- `Excursiones` (título, descripción, imágenes, categoría, tiempo estimado, transporte y coordenadas)
+- `Usuarios` (nombre, email, contraseña encriptada y rol)
+- `Reseñas` (opcional: puntuación y texto)
+
+Para ejecutar el backend:
+
+```bash
+cd backend
+python3 -m pip install -r requirements.txt
+python3 app.py
+```
+
+El servidor quedará disponible en `http://localhost:4000` y las rutas principales son:
+
+- `GET /api/excursiones`
+- `GET /api/excursiones/:id`
+- `POST /api/excursiones`
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/reviews?excursionId=<id>`
+
 ---
 
 ## 🗺️ Páginas del sitio

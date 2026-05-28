@@ -1,41 +1,49 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-    const formularioRegistro = document.getElementById("formRegistro");
-    const botonRegistrar = document.getElementById("btnRegistrarse");
-    const aceptoCheckbox = document.getElementById("acepto");
+const API_BASE_URL = 'http://localhost:4000';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const formularioRegistro = document.getElementById('formRegistro');
+    const botonRegistrar = document.getElementById('btnRegistrarse');
+    const aceptoCheckbox = document.getElementById('acepto');
 
     if (!formularioRegistro || !botonRegistrar || !aceptoCheckbox) return;
 
-    // Deshabilitar botón de enviar si no se aceptan las condiciones al cargar
     botonRegistrar.disabled = !aceptoCheckbox.checked;
-
-    // Escuchar el cambio en el checkbox para habilitar/deshabilitar botón
-    aceptoCheckbox.addEventListener("change", () => {
+    aceptoCheckbox.addEventListener('change', () => {
         botonRegistrar.disabled = !aceptoCheckbox.checked;
     });
 
-    // Escuchar envío del formulario
-    formularioRegistro.addEventListener("submit", (evento) => {
+    formularioRegistro.addEventListener('submit', async (evento) => {
         evento.preventDefault();
 
-        const nombre = document.getElementById("nombre").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
-        // Validar que las contraseñas coincidan
         if (password !== confirmPassword) {
-            alert("❌ ¡Error! Las contraseñas no coinciden. Por favor, vuelve a intentarlo.");
+            alert('❌ ¡Error! Las contraseñas no coinciden. Por favor, vuelve a intentarlo.');
             return;
         }
 
-        // Simular registro exitoso
-        alert(`¡Felicidades ${nombre}! 🎉\nTu cuenta con el correo (${email}) ha sido creada con éxito. Ahora puedes iniciar sesión.`);
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre, email, password })
+            });
 
-        // Limpiar el formulario y redireccionar al login
-        formularioRegistro.reset();
-        botonRegistrar.disabled = true;
-        
-        window.location.href = "../ilogin/ilogin.html";
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Error al registrar el usuario');
+            }
+
+            alert(`¡Felicidades ${data.nombre}! 🎉\nTu cuenta ha sido creada con éxito. Ahora puedes iniciar sesión.`);
+            formularioRegistro.reset();
+            botonRegistrar.disabled = true;
+            window.location.href = '../ilogin/ilogin.html';
+        } catch (error) {
+            alert(error.message);
+        }
     });
 });

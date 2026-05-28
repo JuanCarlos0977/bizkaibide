@@ -33,17 +33,13 @@
                 <h1>BIZKAIBIDE</h1>
                  <p class="inicio-bienvenida">Bienvenido a BizkaiBide, tu web de senderismo por Bizkaia.</p>
                 <div class="inicio-contacto">
-                    <h2 style="text-align: center;"> GRACIAS POR LOGEARTE</h2>
+                    <h2 id="welcomeMessage" style="text-align: center;"></h2>
+                    <p style="text-align: center;">Gracias por iniciar sesión. Puedes explorar nuestras rutas y guardar tus excursiones favoritas.</p>
                 </div>
-
-                <div>
-                    
-                </div>
-
 
                 <div class="inicio_img">
-                    <img src="/img/imagen1.jpeg" alt="imagen1">
-                    <img src="/img/imagen2.jpeg" alt="imagen2">
+                    <img src="../img/imagen1.jpeg" alt="imagen1">
+                    <img src="../img/imagen2.jpeg" alt="imagen2">
                 </div>
             </div>
     </section>     
@@ -59,5 +55,7 @@
 
     </footer>
     
+    <script src="../js/user.js"></script>
+    <script>renderLoggedUser('#welcomeMessage');</script>
 </body>
 </html>
