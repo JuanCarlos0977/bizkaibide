@@ -75,7 +75,7 @@ bizkaibide/
     ├── imagen5.jpeg        # Monte Pagasarri
     ├── imagen7.jpeg        # Flysch de Barrika
     ├── imagen8.jpeg        # Bosque Pintado de Oma
-    ├── gorbea.png          # Imagen de Monte Gorbea
+    ├── gorbea.jpeg          # Imagen de Monte Gorbea
     └── la_galea.png        # Imagen de Acantilados de La Galea
 ```
 

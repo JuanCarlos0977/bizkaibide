@@ -9,7 +9,7 @@ const rutas = [
   { src: 'img/bosqueOma.jpeg', alt: 'Bosque de Oma', label: 'Bosque de Oma' },
   { src: 'img/Gaztelugatxe.jpeg', alt: 'San Juan de Gaztelugatxe', label: 'San Juan de Gaztelugatxe' },
   { src: 'img/anboto.jpeg', alt: 'Anboto', label: 'Monte Anboto' },
-  { src: 'img/gorbea.png', alt: 'Parque Natural Gorbea', label: 'Parque Natural Gorbea' }
+  { src: 'img/gorbea.jpeg', alt: 'Parque Natural Gorbea', label: 'Parque Natural Gorbea' }
 ];
 
 let currentIndex = 0;
