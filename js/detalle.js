@@ -52,46 +52,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <div class="detalle-grid">
+            <div class="detalle-top-section">
                 <div class="media-gallery">
                     <img src="${imageUrl}" alt="${excursion.titulo}">
                 </div>
+                <div class="map-box">
+                    <div class="map-title">🗺️ Ubicación de la Ruta</div>
+                    <div id="map"></div>
+                </div>
+            </div>
 
-                <div class="info-sidebar">
-                    <div class="metrics-box">
-                        <div class="metric-card">
-                            <span class="metric-icon">📏</span>
-                            <span class="metric-title">Distancia</span>
-                            <span class="metric-desc">${excursion.distancia ?? 'N/A'} km</span>
-                        </div>
-                        <div class="metric-card">
-                            <span class="metric-icon">⏱️</span>
-                            <span class="metric-title">Tiempo est.</span>
-                            <span class="metric-desc">${excursion.tiempo_estimado || 'N/A'}</span>
-                        </div>
-                        <div class="metric-card">
-                            <span class="metric-icon">📈</span>
-                            <span class="metric-title">Desnivel</span>
-                            <span class="metric-desc">${excursion.desnivel ?? 'N/A'} m</span>
-                        </div>
-                        <div class="metric-card">
-                            <span class="metric-icon">🚌</span>
-                            <span class="metric-title">Transporte</span>
-                            <span class="metric-desc">${excursion.transporte_recomendado || 'N/A'}</span>
-                        </div>
-                        <div class="metric-card full-width">
-                            <span class="metric-icon">📍</span>
-                            <span class="metric-title">Coordenadas GPS</span>
-                            <span class="metric-desc" style="font-size: 0.95rem; font-weight: normal;">
-                                Lat: ${excursion.latitud ?? 'N/A'} | Long: ${excursion.longitud ?? 'N/A'}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="map-box">
-                        <div class="map-title">🗺️ Ubicación de la Ruta</div>
-                        <div id="map"></div>
-                    </div>
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <span class="metric-icon">📏</span>
+                    <span class="metric-title">Distancia</span>
+                    <span class="metric-desc">${excursion.distancia ?? 'N/A'} km</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-icon">⏱️</span>
+                    <span class="metric-title">Tiempo est.</span>
+                    <span class="metric-desc">${excursion.tiempo_estimado || 'N/A'}</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-icon">📈</span>
+                    <span class="metric-title">Desnivel</span>
+                    <span class="metric-desc">${excursion.desnivel ?? 'N/A'} m</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-icon">🚌</span>
+                    <span class="metric-title">Transporte</span>
+                    <span class="metric-desc">${excursion.transporte_recomendado || 'N/A'}</span>
+                </div>
+                <div class="metric-card gps-card">
+                    <span class="metric-icon">📍</span>
+                    <span class="metric-title">Coordenadas GPS</span>
+                    <span class="metric-desc" style="font-size: 0.95rem; font-weight: normal;">
+                        Lat: ${excursion.latitud ?? 'N/A'}<br>Long: ${excursion.longitud ?? 'N/A'}
+                    </span>
                 </div>
             </div>
 

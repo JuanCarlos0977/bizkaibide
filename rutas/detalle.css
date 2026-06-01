@@ -118,11 +118,11 @@
 }
 
 /* Content Grid */
-.detalle-grid {
+.detalle-top-section {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .media-gallery {
@@ -141,35 +141,29 @@
     transition: var(--transition);
 }
 
-/* Sidebar Metrics Info */
-.info-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.metrics-box {
+/* Horizontal Metrics Info */
+.metrics-row {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius);
-    padding: 1.8rem;
+    padding: 1.5rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .metric-card {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    text-align: center;
 }
 
-.metric-card.full-width {
-    grid-column: span 2;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 1rem;
-    margin-top: 0.5rem;
+.metric-card:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .metric-icon {
@@ -197,6 +191,9 @@
     border-radius: var(--border-radius);
     padding: 1rem;
     overflow: hidden;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .map-title {
@@ -210,7 +207,7 @@
 }
 
 #map {
-    height: 300px;
+    flex-grow: 1;
     width: 100%;
     border-radius: 12px;
     border: 1px solid rgba(212, 168, 71, 0.15);
@@ -413,13 +410,26 @@
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-    .detalle-grid {
+    .detalle-top-section {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
     .media-gallery {
         height: 350px;
+    }
+
+    .map-box {
+        height: 350px;
+    }
+
+    .metrics-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .metric-card:nth-child(3) {
+        border-right: none;
     }
 
     .reviews-container {
@@ -437,9 +447,19 @@
         padding: 1.5rem;
     }
 
-    .metrics-box {
-        padding: 1.2rem;
+    .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+    }
+
+    .metric-card {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.8rem;
+    }
+
+    .metric-card:nth-last-child(-n+2) {
+        border-bottom: none;
     }
 
     .metric-desc {
@@ -448,12 +468,16 @@
 }
 
 @media (max-width: 480px) {
-    .metrics-box {
+    .metrics-row {
         grid-template-columns: 1fr;
     }
 
-    .metric-card.full-width {
-        grid-column: span 1;
+    .metric-card {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .metric-card:last-child {
+        border-bottom: none !important;
     }
 
     .media-gallery {
