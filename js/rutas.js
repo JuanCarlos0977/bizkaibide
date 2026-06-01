@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const button = card.querySelector('.btn-explorar');
             button.addEventListener('click', () => {
-                alert(`Más información de la ruta → ${excursion.titulo}.\nTransporte recomendado: ${excursion.transporte_recomendado || 'N/A'}.`);
+                window.location.href = `detalle.html?id=${excursion.id}`;
             });
 
             rutasGrid.appendChild(card);

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursiones de Día | Detalle de la Ruta</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="detalle.css">
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="icon" href="../img/logo_bizkaibide.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="logo_bizkaibide"><a href="../index.html"><img src="../img/logo_bizkaibide.svg" alt="Bizkaibide" /></a></div>
+            <div id="fechaDia"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../conocenos/conocenos.html">Conocenos</a></li>
+                <li><a href="../rutas/rutas.html" class="active">Rutas</a></li>
+                <li><a href="../icontacto/icontacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="../ilogin/ilogin.html" class="btn-login" id="btnLogin">Login</a>
+            <a href="../registro/registro.html" class="btn-registro" id="btnRegistro">Registro</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="back-nav">
+            <a href="rutas.html" class="btn-back">← Volver a Rutas</a>
+        </div>
+
+        <article class="detalle-container" id="detalleContainer">
+            <div class="loader">Cargando detalles de la ruta...</div>
+        </article>
+
+        <!-- Sección de Reseñas / Valoraciones -->
+        <section class="reviews-section glass-panel">
+            <h2>Valoraciones y Opiniones</h2>
+            
+            <div class="reviews-container">
+                <div class="reviews-list" id="reviewsList">
+                    <p class="no-reviews">No hay valoraciones para esta ruta todavía. ¡Sé el primero en opinar!</p>
+                </div>
+                
+                <div class="review-form-container">
+                    <h3>Deja tu opinión</h3>
+                    <div id="reviewAuthMessage" class="auth-warning">
+                        Debes <a href="../ilogin/ilogin.html">iniciar sesión</a> para publicar una reseña.
+                    </div>
+                    <form id="reviewForm" class="hidden">
+                        <div class="form-group">
+                            <label>Puntuación</label>
+                            <div class="rating-stars">
+                                <input type="radio" id="star5" name="puntuacion" value="5" required /><label for="star5" title="Excelente">★</label>
+                                <input type="radio" id="star4" name="puntuacion" value="4" /><label for="star4" title="Muy buena">★</label>
+                                <input type="radio" id="star3" name="puntuacion" value="3" /><label for="star3" title="Buena">★</label>
+                                <input type="radio" id="star2" name="puntuacion" value="2" /><label for="star2" title="Regular">★</label>
+                                <input type="radio" id="star1" name="puntuacion" value="1" /><label for="star1" title="Mala">★</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Comentario</label>
+                            <textarea id="reviewText" rows="4" placeholder="Comparte tu experiencia en esta ruta..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" id="btnSubmitReview">Enviar Valoración</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="inicio-footer">
+        <div class="caja-footer">
+            <p class="p-footer">&copy; 2026 Proyecto Personal. Todos los derechos reservados.</p>
+            <a href="../icontacto/icontacto.html">Contacto</a>
+        </div>
+    </footer>
+    
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../js/fechadia.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/detalle.js"></script>
+
+</body>
+</html>
